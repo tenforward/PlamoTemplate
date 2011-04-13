@@ -1,0 +1,59 @@
+;;      .eggrc for Wnn4.2 jserver
+;;      s72038@csc.titech.ac.jp
+;;      $Id: eggrc.txt,v 1.1 2000/04/27 04:16:00 tnakada Exp $
+
+(defvar wnn-usr-dic-dir (concat "usr/" (user-login-name)))
+
+;; 独断と偏見により逆変換の必要無しとする。
+(defvar setup-reverse nil)
+
+;; 正変換用のsetup
+(defun wnn4-jserver-setup ()
+  (set-wnn-reverse nil)
+  (set-wnn-fuzokugo "pubdic/full.fzk")
+  (add-wnn-dict "pubdic/kihon.dic" (concat wnn-usr-dic-dir "/kihon.h") 5 nil t)
+  (add-wnn-dict "pubdic/setsuji.dic" (concat wnn-usr-dic-dir "/setsuji.h") 5 nil t)
+  (add-wnn-dict "pubdic/koyuu.dic" (concat wnn-usr-dic-dir "/koyuu.h") 1 nil t)
+  (add-wnn-dict "pubdic/chimei.dic" (concat wnn-usr-dic-dir "/chimei.h") 1 nil t)
+  (add-wnn-dict "pubdic/jinmei.dic" (concat wnn-usr-dic-dir "/jinmei.h") 1 nil t)
+  (add-wnn-dict "pubdic/special.dic" (concat wnn-usr-dic-dir "/special.h") 5 nil t)
+  (add-wnn-dict "pubdic/computer.dic" (concat wnn-usr-dic-dir "/computer.h") 5 nil t)
+  (add-wnn-dict "pubdic/symbol.dic" (concat wnn-usr-dic-dir "/symbol.h") 1 nil t)
+;  (add-wnn-dict "pubdic/tankan.dic" "" 1 nil nil)
+  (add-wnn-dict "pubdic/tankan.dic" (concat wnn-usr-dic-dir "/tankan.h") 1 nil t)
+  (add-wnn-dict "pubdic/bio.dic" (concat wnn-usr-dic-dir "/bio.h") 1 nil t)
+;  (add-wnn-dict "gerodic/g-jinmei.dic" (concat wnn-usr-dic-dir "/g-jinmei.h") 1 nil t)
+;  (add-wnn-dict "misc/supplement.dic" (concat wnn-usr-dic-dir "/supplement.h") 2 nil t)
+;  (add-wnn-dict "aic/chibutsu.dic" (concat wnn-usr-dic-dir "/chibutsu.h") 2 nil t)
+  (add-wnn-dict (concat wnn-usr-dic-dir "/ud") "" 5 t t)
+  (add-wnn-dict "wnncons/tankan2.dic" (concat wnn-usr-dic-dir "/tankan2.h") 1 nil t)
+;  (add-wnn-dict "wnncons/tankan3.dic" "" 1 nil nil)
+)
+
+;; 「よしだともこ必殺パラメータ」
+;; http://web.kyoto-inet.or.jp/people/tomoko-y/biwa/wnn/sdkiji.html 参照
+(cond 
+ ((boundp 'MULE)
+  (set-wnn-param  2 10 2 45 100 200 5 1 40 -100 200 -100 200 80 200 200 200))
+ ((string-match "XEmacs" emacs-version)
+  (wnn-server-set-param '( wnn_n 2
+                           wnn_nsho 10
+                           wnn_hindo 2
+                           wnn_len 45
+                           wnn_jiri 100
+                           wnn_flag 200
+                           wnn_jisho 5
+                           wnn_sbn 1
+                           wnn_dbn_len 40
+                           wnn_sbn_cnt -100
+                           wnn_suuji 200
+                           wnn_kana -100
+                           wnn_eisuu 200
+                           wnn_kigou 80
+                           wnn_toji_kakko 200
+                           wnn_fuzokogo 200
+                           wnn_kaikakko 200))))
+(wnn4-jserver-setup)
+
+;; EOF
+

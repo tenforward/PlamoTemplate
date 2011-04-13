@@ -1,0 +1,14 @@
+#
+# this is a sample for ~/.mgprc.
+#
+
+# setting up font directories.
+# "vfcap" is commented out because it will be guessed by "configure"
+# in most cases.
+#vfcap "/usr/local/libdata/vflib/vfontcap"
+tfdir "/usr/X11R7/lib/X11/fonts/TrueType"
+
+# last resort font for TrueType renderer (FreeType).
+# this must be specified in full pathname so that it can be used even if
+# "tfdir" is changed in presentation file.
+tfont0 "/usr/X11R7/lib/X11/fonts/TrueType/arial.ttf"
