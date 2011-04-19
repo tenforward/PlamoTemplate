@@ -67,10 +67,9 @@ export XMODIFIERS
 export QT_IM_MODULE GTK_IM_MODULE
 
 # Environment variables for the Qt package:
-#QTDIR=/usr/lib/qt
-#CPLUS_INCLUDE_PATH=$QTDIR/include:$CPLUS_INCLUDE_PATH
-#MANPATH="$MANPATH:/usr/lib/qt/doc/man"
-#export QTDIR CPLUS_INCLUDE_PATH MANPATH
+# QT_GRAPHICSSYSTEM: native(default)/opengl/raster
+#QT_GRAPHICSSYSTEM=opengl
+#export QT_GRAPHICSSYSTEM
 
 # GNOME(glib2) が作るファイル名のエンコーディングをLANGに合わせる。
 G_FILENAME_ENCODING=@locale
