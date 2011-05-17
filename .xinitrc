@@ -89,6 +89,15 @@ if [ `date +%m%d` \> "1222" -a `date +%m%d` \< "1227" ] ; then
   [ -x /usr/X11R7/bin/xsnow ] && /usr/X11R7/bin/xsnow &
 fi
 
+# XTerm ¤Îµ¯Æ°
+if [ $WM == "qvwm" ] ; then
+  xterm -vb -geometry 80x30+10+10 -bg cornsilk &
+elif [ $WM == "twm" ] ; then
+  xterm -vb -geometry 80x36+24+4 -bg cornsilk &
+  xterm -vb -geometry 80x36-4+4 -bg cornsilk &
+  xterm -vb -geometry 86x36+4-4 -bg cornsilk &
+fi
+
 if [ -n "`env | grep XDG_SESSION_COOKIE`" ] ; then
   LAUNCH="/usr/bin/dbus-launch --exit-with-session"
 else
