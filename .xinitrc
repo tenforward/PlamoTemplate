@@ -111,6 +111,9 @@ case $WM in
 "qvwm")
   exec $LAUNCH qvwm
   ;;
+"twm")
+  exec $LAUNCH twm
+  ;;
 "xfce")
   exec $LAUNCH startxfce4
   ;;
