@@ -22,7 +22,7 @@ if [ "$TERM" = "xterm" -o "$TERM" = "dtterm" ] ; then
 fi
 
 # less で行番号をつけ，終了後に画面を残す
-LESS='-M -X'
+LESS='-R -M -X'
 
 EDITOR='vi'
 #EDITOR='emacs -nw'
@@ -61,7 +61,7 @@ case $TERM in
 kterm|xterm|rxvt|dtterm|vt100)
     # Windowのタイトルバーにカレントディレクトリ
     # が表示可能な場合のプロンプト設定
-    #   表示例→ hoge@host[/usr/X11R7/lib/X11/app-defaults]% _
+    #   表示例→ hoge@host[/usr/lib64/X11/app-defaults]% _
     PS1='%n@%m[%~]%# '
     #   表示例→ hoge@host[app-defaults]% _
     #PS1='%n@%m[%c]%# '

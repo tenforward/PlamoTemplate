@@ -2,6 +2,9 @@
 #  Plamo Linux ユーザ設定ファイルサンプル for bash
 #                            Time-stamp: <2005-02-02 20:09:17 cyamauch>
 
+# prevent illegal line wrapping
+shopt -s checkwinsize
+
 ## ログイン時以外 (ログインシェルでない場合) で、
 ## 対話シェルの場合に実行されます。
 
@@ -32,7 +35,7 @@ if [ "$TERM" = "xterm" -o "$TERM" = "dtterm" ] ; then
 fi
 
 # less で行番号をつけ，終了後に画面を残す
-LESS='-M -X'
+LESS='-R -M -X'
 
 EDITOR='vi'
 #EDITOR='emacs -nw'
@@ -77,7 +80,7 @@ case $TERM in
 kterm|xterm|rxvt|dtterm|vt100|screen)
     # Windowのタイトルバーにカレントディレクトリ
     # が表示可能な場合のプロンプト設定
-    #   表示例→ hoge@host:/usr/X11R7/lib/X11/app-defaults$ _
+    #   表示例→ hoge@host:/usr/lib64/X11/app-defaults$ _
     PS1='\u@\h:\w\$ '
     #   表示例→ hoge@host:app-defaults$ _
     #PS1='\u@\h:\W\$ '

@@ -26,7 +26,7 @@ if ( "x.${TERM}" == "x.xterm" || "x.${TERM}" == "x.dtterm" ) then
 endif
 
 # less で行番号をつけ，終了後に画面を残す
-setenv LESS '-M -X'
+setenv LESS '-R -M -X'
 
 setenv EDITOR 'vi'
 #setenv EDITOR 'emacs -nw'
@@ -87,7 +87,7 @@ if ($?prompt) then
 	endif
 	# Windowのタイトルバーにカレントディレクトリ
 	# が表示可能な場合のプロンプト設定
-	#   表示例→ hoge@host[/usr/X11R7/lib/X11/app-defaults]% _
+	#   表示例→ hoge@host[/usr/lib64/X11/app-defaults]% _
 	set prompt   = `whoami`@`hostname`"[%~]% "
 	#   表示例→ hoge@host[/<4>app-defaults]% _
 	#set prompt   = `whoami`@`hostname`"[%c01]% "
