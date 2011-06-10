@@ -3,7 +3,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; 最終更新日の自動挿入
-;;;   ファイルの先頭から 8 行以内に Time-stamp: <2011-04-02 14:40:21 karma> または
+;;;   ファイルの先頭から 8 行以内に Time-stamp: <2011-06-10 20:49:13 karma> または
 ;;;   Time-stamp: " " と書いてあれば、セーブ時に自動的に日付が挿入されます
 (add-hook 'write-file-hooks 'time-stamp)
 
@@ -42,7 +42,7 @@
 (global-set-key (kbd "C-h") 'delete-backward-char)
 
 ;;; タブを使わない
-(setq-default indent-tabs-mode nil)
+;(setq-default indent-tabs-mode nil)
 
 ;;; マーク領域を色付け
 (setq transient-mark-mode t)
