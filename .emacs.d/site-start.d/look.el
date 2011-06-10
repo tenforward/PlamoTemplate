@@ -89,10 +89,11 @@
 	     'japanese-jisx0212
 	     '("IPAexゴシック" . "iso10646-1"))
 ;	     '("VL ゴシック" . "iso10646-1"))
-	    (setq face-font-rescale-alist
-		  '((".*IPAexゴシック" . 1.3)
-		    (".*VL ゴシック.*" . 1.3)
-		    ("-cdac$" . 1.3)))
+            ;; Ascii フォントと日本語フォントの幅を調整する
+;	    (setq face-font-rescale-alist
+;		  '((".*IPAexゴシック" . 1.3)
+;		    (".*VL ゴシック.*" . 1.3)
+;		    ("-cdac$" . 1.3)))
 	    )) ; Emacs23 以上の設定
 
       )
