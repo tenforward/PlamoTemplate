@@ -1,13 +1,14 @@
 #!/bin/sh
 ######################################################################
 # Plamo Linux ユーザ設定ファイルサンプル for xinitrc, xsession
-#                           Time-stamp: <2011-04-13 18:56:13 karma>
+#                           Time-stamp: <2011-07-25 19:59:37 karma>
 #                           Time-stamp: <2006-01-18 16:56:27 jado>
 #                           Time-stamp: <2009-06-18 15:07:14 kojima>
 #                           Time-stamp: <2009-06-22 19:24:46 tamuki>
 
 # startx，xdm から実行されるファイルです。
 
+#WM="step"
 #WM="qvwm"
 #WM="twm"
 WM="xfce"
@@ -15,10 +16,20 @@ WM="xfce"
 
 unset TERM
 
-if [ $WM = "qvwm" ] ; then
+if [ $WM = "step" ] ; then
+  xsetroot -solid white
+  ini_mail=/etc/template/mime-mail.sample
+  cur_mail=/var/spool/mail/$USER
+  if [ -f $ini_mail -a -f $cur_mail ] ; then
+    if diff $ini_mail $cur_mail > /dev/null ; then
+      [ -x /usr/lib64/X11/afterstep/plamo_banner ] &&
+          /usr/lib64/X11/afterstep/plamo_banner &
+    fi
+  fi
+elif [ $WM = "qvwm" ] ; then
   xsetroot -solid black
-  [ -f /usr/X11R7/share/qvwm/images/logo.xpm ] &&
-      qvbanner /usr/X11R7/share/qvwm/images/logo.xpm &
+  [ -f /usr/share/qvwm/images/logo.xpm ] &&
+      qvbanner /usr/share/qvwm/images/logo.xpm &
 fi
 
 LANG=ja_JP.eucJP
@@ -26,11 +37,7 @@ export LANG
 
 # KDE additions:
 KDEDIR=/opt/kde
-PATH=$PATH:$KDEDIR/bin
-
-# Environment variables for the htdig package:
-PATH=$PATH:/opt/www/htdig/bin
-export KDEDIR PATH
+PATH=$PATH:/usr/lib64/qt/bin:$KDEDIR/bin
 
 userresources=$HOME/.Xdefaults
 [ -f $userresources ] && xrdb -merge $userresources
@@ -46,15 +53,31 @@ fi
 # Xの利用時に，Caps_Lock(英数) と Control_L とを入れ替える時は有効にします。
 #[ -f $usermodmap ] && xmodmap $usermodmap
 
-# 漢字入力システム skkinput の起動
-[ -x /usr/X11R7/bin/skkinput ] && exec /usr/X11R7/bin/skkinput &
+# 漢字入力システム kinput2 の起動
+CC_DEF_PATH=$HOME/.kinput2/ccdef
+export CC_DEF_PATH
+[ -f $HOME/.kinput2.PID ] && rm $HOME/.kinput2.PID
+[ -x /usr/bin/kinput2 ] && exec /usr/bin/kinput2 &
+
+# 日本語入力サーバ nicolatter の起動
+[ -x /usr/bin/nicolatter ] && ( sleep 15 ; /usr/bin/nicolatter ) &
 
 # 多言語入力メソッドフレームワーク uim の起動
 [ -x /usr/bin/uim-xim ] && uim-xim &
 [ -x /usr/bin/uim-toolbar-gtk-systray ] && uim-toolbar-gtk-systray &
 
-# skkinput を使う場合はこちら
-#XMODIFIERS="@im=skkinput"
+# ibus
+if [ $WM != "kde" -a $WM != "gnome" -a $WM != "xfce" ] ; then
+  IBUS_DAEMON=/usr/bin/ibus-daemon
+  if [ -x $IBUS_DAEMON ]; then
+    $IBUS_DAEMON --xim --daemonize
+  fi
+fi
+
+# kinput2 を使う場合はこちら
+XMODIFIERS="@im=kinput2"
+# nicolatter を使う場合はこちら
+#XMODIFIERS="@im=nicolatter"
 # uim を使う場合はこちら
 #XMODIFIERS="@im=uim"
 #QT_IM_MODULE=uim
@@ -84,18 +107,30 @@ XDG_DATA_DIRS=/usr/share:/opt/kde/share
 XDG_CONFIG_DIRS=/etc/xdg
 export PYTHONPATH XDG_DATA_DIRS XDG_CONFIG_DIRS
 
+# Wall paper
+if [ $WM == "step" ] ; then
+  xv +noresetroot -root -max -quit /usr/share/pixmaps/backgrounds/Plamo/plamoback_c3.png
+elif [ $WM == "twm" ] ; then
+  xv +noresetroot -root -quit /usr/share/pixmaps/backgrounds/Plamo/sx68k_root1.xpm
+fi
+
 # Keep Christmas!!
 if [ `date +%m%d` \> "1222" -a `date +%m%d` \< "1227" ] ; then
   [ -x /usr/X11R7/bin/xsnow ] && /usr/X11R7/bin/xsnow &
 fi
 
-# XTerm の起動
+# unclutter は一定時間動かないカーソルを隠すプログラムです。
+if [ $WM != "kde" -a $WM != "gnome" -a $WM != "xfce" ] ; then
+  unclutter &
+fi
+
+# 適当な場所に kterm を開きます。
 if [ $WM == "qvwm" ] ; then
-  xterm -vb -geometry 80x30+10+10 -bg cornsilk &
+  kterm -vb -km euc -geometry 80x30+10+10 -bg cornsilk &
 elif [ $WM == "twm" ] ; then
-  xterm -vb -geometry 80x36+24+4 -bg cornsilk &
-  xterm -vb -geometry 80x36-4+4 -bg cornsilk &
-  xterm -vb -geometry 86x36+4-4 -bg cornsilk &
+  kterm -vb -km euc -geometry 80x36+24+4 -bg cornsilk &
+  kterm -vb -km euc -geometry 80x36-4+4 -bg cornsilk &
+  kterm -vb -km euc -geometry 86x36+4-4 -bg cornsilk &
 fi
 
 if [ -n "`env | grep XDG_SESSION_COOKIE`" ] ; then
