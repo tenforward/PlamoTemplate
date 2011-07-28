@@ -1,5 +1,110 @@
+! Xaw3dの表示を綺麗にする
+*beNiceToColormap:      False
+
+! kterm, xterm 等でビープ音を鳴らさない
+!*visualBell:   True
+
+! kinput2を使う場合はこちら
+*inputMethod:   kinput2
+! skkinput を使う場合はこちら
+!*inputMethod:  skkinput
+! nicolatter を使う場合はこちら
+!*inputMethod:  nicolatter
+! uim を使う場合はこちら
+!*inputMethod:  uim
+! ibus を使う場合はこちら
+!*inputMethod:  ibus
+
+!!
+!! kinput2
+!!
+Kinput2*CcWnn.ccdef:    ccdef.kinput2
+! 日本語入力モード切り替えキーの設定
+! Ctrl + o を無効にしたい場合は .canna で設定してください
+Kinput2*ConversionStartKeys: \
+        Shift<Key>space \n\
+        <Key>Zenkaku_Hankaku \n\
+        Alt<Key>Zenkaku_Hankaku \n\
+        Shift<Key>Zenkaku_Hankaku \n\
+        <Key>Kanji \n\
+        Alt<Key>Kanji \n\
+        Shift<Key>Kanji
+Kinput2*sendbackKeyPress:       True
+Kinput2*background:     #c0c0c0
+Kinput2*foreground:     black
+Kinput2*OverTheSpotConversion*modeShell.borderWidth:    1
+! KDEでは必須
+Kinput2*OverTheSpotConversion.useOverrideShellForMode: True
+! OpenOffice で必要らしい
+Kinput2*SeparateConversion.input: false
+Kinput2*selectionShell.input: false
+Kinput2*auxShell.input: false
+! 以下2つのリソースは kinput2-canna の場合のみ有効
+Kinput2*ConversionEndKeys: \
+        Shift<Key>space \n\
+        <Key>Zenkaku_Hankaku \n\
+        Alt<Key>Zenkaku_Hankaku \n\
+        Shift<Key>Zenkaku_Hankaku \n\
+        <Key>Kanji \n\
+        Alt<Key>Kanji \n\
+        Shift<Key>Kanji
+! キーボード右下の backslash は常に“_”にする(かな入力で必須)
+Kinput2*keyBackslashAlwaysShifted:      True
+
+Kinput2*Font:           -*-fixed-medium-r-normal--@FSIZE_TERM@-*-*-*-c-*-iso8859-1
+Kinput2*KanjiFont:      -*-fixed-medium-r-normal--@FSIZE_TERM@-*-*-*-c-*-jisx0208.1983-0
+Kinput2*KanaFont:       -*-fixed-medium-r-normal--@FSIZE_TERM@-*-*-*-c-*-jisx0201.1976-0
+Kinput2*defaultFontList: -*-fixed-medium-r-normal--@FSIZE_TERM@-*-*-*-c-*-*-*
+
+!!
+!! Emacs
+!!
 Emacs*useXIM: true
 
+!!
+!! kterm
+!!
+
+! kterm の各行の下に 2 画素の間隔をあける
+! KTerm*lineSpace:      2
+KTerm*VT100.background: #f8f4f0
+KTerm*VT100.foreground: black
+KTerm*VT100.cursorColor:        black
+KTerm*scrollBar:        true
+KTerm*rightScrollBar:   true
+KTerm*KanjiMode:        euc
+KTerm*saveLines:        512
+
+KTerm*SimpleMenu*fontSet:               -adobe-helvetica-medium-r-*-*-@FSIZE_UI@-*-*-*-*-*-iso8859-*,-*-fixed-medium-r-normal--@FSIZE_UI@-*-*-*-c-*-*-*
+KTerm*SimpleMenu*menuLabel.fontSet:     -adobe-helvetica-bold-r-*-*-@FSIZE_UI@-*-*-*-*-*-iso8859-*,-*-fixed-bold-r-normal--@FSIZE_UI@-*-*-*-c-*-*-*
+!! フォント ( Ctrl + 右ドラッグ で選択)
+KTerm*VT100*fontList:           -*-fixed-medium-r-normal--@FSIZE_TERM@-*-*-*-c-*-*-*
+KTerm*VT100*boldFontList:       -*-fixed-bold-r-normal--@FSIZE_TERM@-*-*-*-c-*-*-*
+
+!! kinput2 を Shift + スペース もしくは 変換 で開く
+!! [Delete][Home][End]キーの設定
+KTerm*VT100*translations: #override \
+        Shift<Key>space: begin-conversion(_JAPANESE_CONVERSION) \n\
+        <Key>Henkan: begin-conversion(_JAPANESE_CONVERSION) \n\
+        Shift<Btn4Down>,<Btn4Up>:scroll-back(1,line)\n\
+        Shift<Btn5Down>,<Btn5Up>:scroll-forw(1,line)\n\
+        Ctrl<Btn4Down>,<Btn4Up>:scroll-back(1,page)\n\
+        Ctrl<Btn5Down>,<Btn5Up>:scroll-forw(1,page)\n\
+        <Btn4Down>,<Btn4Up>:scroll-back(1,halfpage)\n\
+        <Btn5Down>,<Btn5Up>:scroll-forw(1,halfpage)\n\
+        <Key>Home: string("\033[1~") \n\
+        <Key>End: string("\033[4~")
+KTerm*openIm:           True
+KTerm*allowSendEvents:  True
+KTerm*preeditType:      OverTheSpot
+
+XTerm*rightScrollBar:   true
+XTerm*ximFont:          -*-fixed-medium-r-normal--12-*-*-*-c-*-*-*
+XTerm*charClass:        33:48,35:48,37:48,43:48,45-47:48,61:48,58:48,94:48,126-127:48
+
+!!
+!! xterm
+!!
 XTerm*locale: true
 XTerm*utf8: 1
 XTerm*faceSize: 10
@@ -9,3 +114,12 @@ XTerm*faceName: Bitstream Vera Sans Mono
 !XTerm*faceNameDoublesize: VL Gothic
 XTerm*faceNameDoublesize: IPAexGothic
 
+!!
+!! EmiClock
+!!
+EmiClock*fontSet:       -*-fixed-medium-r-normal--@FSIZE_UI@-*-*-*-c-*-*-*
+
+!!
+!! XMascot
+!! 
+XMascot*FontSet:        -*-fixed-medium-r-normal--@FSIZE_UI@-*-*-*-c-*-*-*
