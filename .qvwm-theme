@@ -17,7 +17,7 @@
 DefaultIcon		= "def16.ani"	; default titlebar/taskbar-button icon
 DefaultLargeIcon	= "def32.ani"	; default task switcher icon
 DefaultShortcutIcon	= "icon32.ani"	; default shortcut icon
-DefaultFont		= "-alias-sans-medium-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
+DefaultFont		= "-misc-fixed-medium-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
 
 ; desktop
 WallPaper		= Windows2000	; image tiled in the desktop
@@ -37,7 +37,7 @@ TitlebarActiveColor	= qvblue	; titlebar color (active)
 TitlebarActiveColor2	= qvlightblue	; titlebar right-side color (active)
 TitleStringColor	= qvgray	; title string color (inactive)
 TitleStringActiveColor	= white		; title string color (active)
-TitleFont		= "-alias-sans-medium-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
+TitleFont		= "-misc-fixed-medium-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
 
 ; frame
 FrameBorderWidth	= 2
@@ -59,7 +59,7 @@ TaskbarButtonHeight	= 22
 TaskbarColor		= qvgray	; taskbar color
 ClockStringColor	= black		; clock string color
 UseBoldFont		= False		; use bold font for emphasis
-TaskbarFont		= "-alias-sans-medium-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
+TaskbarFont		= "-misc-fixed-medium-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
 TaskbarBoldFont		= "-alias-sans-bold-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
 
 ; indicator
@@ -73,7 +73,7 @@ IconStringColor		= white
 IconStringActiveColor	= white
 IconForeColor		= black		; icon foreground color
 IconBackColor		= white		; icon background color
-IconFont		= "-alias-sans-medium-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
+IconFont		= "-misc-fixed-medium-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
 
 ; menu
 ;MenuImage		= ""		; menu background image
@@ -82,18 +82,18 @@ MenuColor		= qvgray	; menu color
 MenuActiveColor		= qvblue	; selected menu item color
 MenuStringColor		= black		; menu string color (unselected)
 MenuStringActiveColor	= white		; menu string color (selected)
-CtrlMenuFont		= "-alias-sans-medium-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
+CtrlMenuFont		= "-misc-fixed-medium-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
 
 ; startmenu
 ;StartMenuLogoImage	= ""
 StartMenuLogoColor	= qvblue
-StartMenuFont		= "-alias-sans-medium-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
-CascadeMenuFont		= "-alias-sans-medium-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
+StartMenuFont		= "-misc-fixed-medium-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
+CascadeMenuFont		= "-misc-fixed-medium-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
 
 ; dialog
 ;DialogImage		= ""		; dialog background image
 DialogColor		= qvgray	; dialog color
-DialogFont		= "-alias-sans-medium-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
+DialogFont		= "-misc-fixed-medium-r-normal--@FSIZE_UI@-*-*-*-*-*-*-*"
 
 ; switcher
 ;SwitcherImage		= ""		; switcher background image
