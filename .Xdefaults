@@ -98,10 +98,6 @@ KTerm*openIm:           True
 KTerm*allowSendEvents:  True
 KTerm*preeditType:      OverTheSpot
 
-XTerm*rightScrollBar:   true
-XTerm*ximFont:          -*-fixed-medium-r-normal--12-*-*-*-c-*-*-*
-XTerm*charClass:        33:48,35:48,37:48,43:48,45-47:48,61:48,58:48,94:48,126-127:48
-
 !!
 !! xterm
 !!
@@ -113,6 +109,9 @@ XTerm*wideChars: true
 XTerm*faceName: Bitstream Vera Sans Mono
 !XTerm*faceNameDoublesize: VL Gothic
 XTerm*faceNameDoublesize: IPAexGothic
+XTerm*rightScrollBar:   true
+XTerm*ximFont:          -*-fixed-medium-r-normal--12-*-*-*-c-*-*-*
+XTerm*charClass:        33:48,35:48,37:48,43:48,45-47:48,61:48,58:48,94:48,126-127:48
 
 !!
 !! EmiClock
