@@ -1,7 +1,7 @@
 ###################################################################
 #  Plamo Linux ユーザ設定ファイルサンプル for tcsh
 #                       Chisato Yamauchi (cyamauch@phyas.aichi-edu.ac.jp)
-#                            Time-stamp: <2005-02-02 20:07:05 cyamauch>
+#                            Time-stamp: <2011-09-30 20:13:08 karma>
 
 umask 022
 limit coredumpsize 0
@@ -31,6 +31,9 @@ setenv LESS '-R -M -X'
 setenv EDITOR 'vi'
 #setenv EDITOR 'emacs -nw'
 setenv PAGER 'less'
+
+# for Python
+setenv PYTHONPATH /usr/lib64/python2.7/site-packages:/opt/kde/lib64/python2.7/site-packages
 
 # NetNews のサーバを指定してください
 # setenv NNTPSERVER news.hoge.hoge.ac.jp

@@ -1,6 +1,6 @@
 ###################################################################
 #  Plamo Linux ユーザ設定ファイルサンプル for bash
-#                            Time-stamp: <2005-02-02 20:09:17 cyamauch>
+#                            Time-stamp: <2011-09-30 20:12:26 karma>
 
 # prevent illegal line wrapping
 shopt -s checkwinsize
@@ -36,6 +36,10 @@ fi
 
 # less で行番号をつけ，終了後に画面を残す
 LESS='-R -M -X'
+
+# for Python
+PYTHONPATH=/usr/lib64/python2.7/site-packages:/opt/kde/lib64/python2.7/site-packages
+export PYTHONPATH
 
 EDITOR='vi'
 #EDITOR='emacs -nw'

@@ -1,7 +1,7 @@
 ###################################################################
 #  Plamo Linux ユーザ設定ファイルサンプル .zshrc
 #                       Chisato Yamauchi (cyamauch@phyas.aichi-edu.ac.jp)
-#                            Time-stamp: <2005-02-02 20:10:01 cyamauch>
+#                            Time-stamp: <2011-09-30 20:13:44 karma>
 
 #if [ $SHLVL = 1 ] ; then
 #  PATH="$PATH:." ;
@@ -30,6 +30,9 @@ PAGER='less'
 export LESS EDITOR PAGER
 
 HISTFILE=$HOME/.zhistory
+
+# for Python 
+PYTHONPATH=/usr/lib64/python2.7/site-packages:/opt/kde/lib64/python2.7/site-packages
 
 # color-ls
 # 色設定等は ~/.dir_colors

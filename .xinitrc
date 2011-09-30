@@ -1,7 +1,7 @@
 #!/bin/sh
 ######################################################################
 # Plamo Linux ユーザ設定ファイルサンプル for xinitrc, xsession
-#                           Time-stamp: <2011-07-25 19:59:37 karma>
+#                           Time-stamp: <2011-09-30 20:09:58 karma>
 #                           Time-stamp: <2006-01-18 16:56:27 jado>
 #                           Time-stamp: <2009-06-18 15:07:14 kojima>
 #                           Time-stamp: <2009-06-22 19:24:46 tamuki>
@@ -101,11 +101,6 @@ export G_FILENAME_ENCODING
 # MP3 のタグの文字コード (読み込み: CP932 or UTF-8 / 書き込み: CP932)
 #GST_ID3_TAG_ENCODING=CP932:UTF-8
 #export GST_ID3_TAG_ENCODING
-
-PYTHONPATH=/usr/lib/python-2.7/site-packages:/usr/lib/python-2.7/site-packages/gtk-2.0
-XDG_DATA_DIRS=/usr/share:/opt/kde/share
-XDG_CONFIG_DIRS=/etc/xdg
-export PYTHONPATH XDG_DATA_DIRS XDG_CONFIG_DIRS
 
 # Wall paper
 if [ $WM == "step" ] ; then
