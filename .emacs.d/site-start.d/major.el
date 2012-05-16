@@ -23,8 +23,11 @@
 ;;	     (setq tab-width 4)
 ;;	     (setq c-auto-newline t)
              ; GNU global ( Ã≈” require …¨Õ◊)
-;;           (gtags-mode 1)
 	     ) t)
+(add-hook 'c-mode-common-hook
+          '(lambda ()
+             (gtags-mode 1)
+             ))
 
 ;;; fortran-mode
 (add-hook 'fortran-mode-hook
