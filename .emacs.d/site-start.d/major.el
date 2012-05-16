@@ -22,6 +22,8 @@
 	     (setq c-basic-offset 4)
 ;;	     (setq tab-width 4)
 ;;	     (setq c-auto-newline t)
+             ; GNU global (ÊÌÅÓ require É¬Í×)
+;;           (gtags-mode 1)
 	     ) t)
 
 ;;; fortran-mode
